@@ -4,16 +4,16 @@ const cors = require('cors');
 const adminRouter = require("./routes/admin");
 const userRouter = require("./routes/user");
 require("dotenv").config();
-
-const DB_CONNECT = process.env.DB_CONNECT;
-
-const app = express();
-
 app.use(cors({
     origin: ["https://learn-era-admin.vercel.app","https://learn-era-user.vercel.app"],
     methods:["POST","GET","PUT","DELETE"],
     credentials:true
 }));
+const DB_CONNECT = process.env.DB_CONNECT;
+
+const app = express();
+
+
 app.use(express.json());
  
 app.use("/admin", adminRouter)

@@ -16,7 +16,7 @@ const CourseDetail = () => {
   const [loading, setLoading] = useState(true);
   const [purchased, setPurchased] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:3000/user/course/${courseId}`, {
+    fetch(`https://learn-era-backend.vercel.app/user/course/${courseId}`, {
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('token'),
       },
@@ -29,7 +29,7 @@ const CourseDetail = () => {
   }, [courseId]);
 
   const coursePurchasing = () => {
-    fetch(`http://localhost:3000/user/courses/${courseId}`, {
+    fetch(`https://learn-era-backend.vercel.app/user/courses/${courseId}`, {
       method: 'POST',
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('token'),

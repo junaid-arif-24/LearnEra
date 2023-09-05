@@ -10,7 +10,7 @@ const SignUp = () => {
   const onSubmitHandler = async(event) => {
    event.preventDefault();
     try{
-      const res = await axios.post( "http://localhost:3000/user/signup",{
+      const res = await axios.post( "https://learn-era-backend.vercel.app/user/signup",{
         username: user.email, password: user.password,
       });
       localStorage.setItem('token', res.data.token);

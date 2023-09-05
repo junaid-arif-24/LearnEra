@@ -10,10 +10,8 @@ const Home = () => {
       sx={{
         height: '100vh',
         width: '100vw',
-        // padding:"20px",
         display: 'flex',
         justifyContent: 'center',
-        // alignItems:'center'
       }}>
       <Grid container spacing={2} p={4}>
         <Grid

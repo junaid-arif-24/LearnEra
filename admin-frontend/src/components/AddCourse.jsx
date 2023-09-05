@@ -35,7 +35,7 @@ useEffect(() => {
       published,
     };
     axios
-      .post('http://localhost:3000/admin/courses', newCourse, {
+      .post('https://learn-era-backend.vercel.app/admin/courses', newCourse, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
           'Content-Type': 'application/json', // Specify content type
@@ -68,7 +68,7 @@ useEffect(() => {
     };
     try {
       const response = await axios.put(
-        `http://localhost:3000/admin/courses/${props.course.course._id}`,
+        `https://learn-era-backend.vercel.app/admin/courses/${props.course.course._id}`,
         updatedData,
         {
           headers: {

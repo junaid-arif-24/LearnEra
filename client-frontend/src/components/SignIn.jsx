@@ -10,7 +10,7 @@ const SignIn = () => {
   const [user, setUser] = useRecoilState(userState);
   const onSubmitHandler = async() => {
     try{
-      const res = await axios.post('http://localhost:3000/user/login',{
+      const res = await axios.post('https://learn-era-backend.vercel.app/user/login',{
        username: user.email, password: user.password
       });
       

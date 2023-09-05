@@ -19,7 +19,7 @@ import {
     useEffect(() => {
       const fetchCourses = async () => {
         try {
-          const response = await axios.get('http://localhost:3000/user/purchasedCourses', {
+          const response = await axios.get('https://learn-era-backend.vercel.app/user/purchasedCourses', {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),
             },

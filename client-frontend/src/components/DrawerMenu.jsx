@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { Divider } from '@mui/material';
+import {Divider} from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import LaptopChromebookTwoToneIcon from '@mui/icons-material/LaptopChromebookTwoTone';
@@ -20,7 +20,6 @@ export default function DrawerMenu() {
   return (
     <div>
       <React.Fragment>
-        {/* <Button onClick={porps.function(true)}>toggele</Button> */}
         <Drawer
           anchor={'left'}
           open={isOpen}
@@ -38,9 +37,10 @@ export default function DrawerMenu() {
             }}>
             <List>
               <ListItem disablePadding>
-                <ListItemButton onClick={()=>{
-                  navigate('/')
-                }}>
+                <ListItemButton
+                  onClick={() => {
+                    navigate('/');
+                  }}>
                   <ListItemIcon>
                     <HomeTwoToneIcon />
                   </ListItemIcon>
@@ -48,9 +48,10 @@ export default function DrawerMenu() {
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={()=>{
-                  navigate('/purchase')
-                }}>
+                <ListItemButton
+                  onClick={() => {
+                    navigate('/purchase');
+                  }}>
                   <ListItemIcon>
                     <LaptopChromebookTwoToneIcon />
                   </ListItemIcon>
@@ -58,9 +59,10 @@ export default function DrawerMenu() {
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
-                <ListItemButton onClick={()=>{
-                  navigate('/courses')
-                }}>
+                <ListItemButton
+                  onClick={() => {
+                    navigate('/courses');
+                  }}>
                   <ListItemIcon>
                     <LocalLibraryIcon />
                   </ListItemIcon>
@@ -68,7 +70,7 @@ export default function DrawerMenu() {
                 </ListItemButton>
               </ListItem>
             </List>
-            <Divider/>
+            <Divider />
           </Box>
         </Drawer>
       </React.Fragment>

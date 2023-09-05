@@ -17,7 +17,7 @@ const CourseDetail = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:3000/admin/course/${courseId}`, {
+    fetch(`https://learn-era-backend.vercel.app/admin/course/${courseId}`, {
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('token'),
       },

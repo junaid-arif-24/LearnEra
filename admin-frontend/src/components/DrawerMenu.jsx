@@ -20,7 +20,7 @@ export default function DrawerMenu() {
   return (
     <div>
       <React.Fragment>
-        {/* <Button onClick={porps.function(true)}>toggele</Button> */}
+       
         <Drawer
           anchor={'left'}
           open={isOpen}

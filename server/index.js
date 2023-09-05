@@ -20,8 +20,6 @@ app.use("/admin", adminRouter)
 app.use("/user", userRouter)
 app.get("/", (req, res) => res.json({msg: "Welcome to Course selling website"}));
 
-// Connect to MongoDB
-// DONT MISUSE THIS THANKYOU!!
 mongoose.connect(DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true, dbName: "courses" });
 
 app.listen(3000, () => console.log('Server running on port 3000'));

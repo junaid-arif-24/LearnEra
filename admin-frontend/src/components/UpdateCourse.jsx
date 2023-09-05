@@ -7,7 +7,7 @@ const UpdateCourse = () => {
   useEffect(() => {
     const getCourseDetails = async () => {
         try {
-          const response = await fetch(`http://localhost:3000/admin/course/${courseId}`, {
+          const response = await fetch(`https://learn-era-backend.vercel.app/course/${courseId}`, {
             method: 'GET',
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),

@@ -15,16 +15,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useRecoilState(openState);
 
   const [admin,setAdmin] = useRecoilState(adminState)
-  // const toggleDrawer = (open) => event => {
-  //   if (
-  //     event.type === 'keydown' &&
-  //     (event.key === 'Tab' || event.key === 'Shift')
-  //   ) {
-  //     return;
-  //   }
-
-  //   setIsOpen(open);
-  // };
+  
   return (
     <Box sx={{flexGrow: 1}}>
       <AppBar position="static">

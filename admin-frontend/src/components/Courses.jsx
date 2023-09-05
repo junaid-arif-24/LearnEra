@@ -21,7 +21,7 @@ const Courses = () => {
     const fetchCourses = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3000/admin/courses',
+          'https://learn-era-backend.vercel.app/admin/courses',
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -45,7 +45,7 @@ const Courses = () => {
     if (confirmation) {
       try {
         const response = await axios.delete(
-          `http://localhost:3000/admin/course/${id}`,
+          `https://learn-era-backend.vercel.app/admin/course/${id}`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),

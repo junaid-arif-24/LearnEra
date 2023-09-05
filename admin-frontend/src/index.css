@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+}
+#root{
+  
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 0em; /* Adjust as needed */
+  }

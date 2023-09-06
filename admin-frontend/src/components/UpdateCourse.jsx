@@ -1,13 +1,14 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import AddCourse from './AddCourse';
+import { BASE_URL } from '../config';
 const UpdateCourse = () => {
   const {courseId} = useParams();
   const [course, setCourse] = useState(null);
   useEffect(() => {
     const getCourseDetails = async () => {
         try {
-          const response = await fetch(`https://learn-era-backend.vercel.app/course/${courseId}`, {
+          const response = await fetch(`${BASE_URL}/admin/course/${courseId}`, {
             method: 'GET',
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),

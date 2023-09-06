@@ -3,28 +3,29 @@ import Button from '@mui/material/Button';
 import {Card, Typography} from '@mui/material';
 import {adminState} from '../store/atoms/adminAtom';
 import {useRecoilState} from 'recoil';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import {BASE_URL} from '../config';
 import axios from 'axios';
+
 const SignIn = () => {
   const navigate = useNavigate();
   const [admin, setAdmin] = useRecoilState(adminState);
-  const onSubmitHandler = async() => {
-    try{
-      const res = await axios.post('https://learn-era-backend.vercel.app/admin/login',{
+  const onSubmitHandler = async () => {
+    try {
+      const res = await axios.post(`${BASE_URL}/admin/login`, {
         body: JSON.stringify({username: admin.email, password: admin.password}),
       });
-      
+
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('isLoggedIn', true);
       setAdmin({
-        email: "",
-        passowrd: "",
+        email: '',
+        passowrd: '',
         isLoggedIn: true,
       });
-      navigate("/")
-    }
-    catch(err){
-      console.log("error", err);
+      navigate('/');
+    } catch (err) {
+      console.log('error', err);
     }
   };
   return (
@@ -51,6 +52,7 @@ const SignIn = () => {
             padding: '2rem',
             height: '300px',
             width: '300px',
+            borderColor:'transparent'
           }}>
           <TextField
             id="outlined-basic"

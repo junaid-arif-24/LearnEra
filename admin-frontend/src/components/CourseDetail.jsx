@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
-
+import { BASE_URL } from '../config';
 import {
   Container,
   Paper,
@@ -17,7 +17,7 @@ const CourseDetail = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`https://learn-era-backend.vercel.app/admin/course/${courseId}`, {
+    fetch(`${BASE_URL}/admin/course/${courseId}`, {
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('token'),
       },

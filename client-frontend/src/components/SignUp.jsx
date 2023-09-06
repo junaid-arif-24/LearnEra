@@ -2,6 +2,7 @@ import {Typography, Card, TextField, Button} from '@mui/material';
 import {userState} from '../store/atoms/userAtom';
 import { useRecoilState} from 'recoil';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../config';
 import axios from 'axios';
 const SignUp = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const SignUp = () => {
   const onSubmitHandler = async(event) => {
    event.preventDefault();
     try{
-      const res = await axios.post( "https://learn-era-backend.vercel.app/user/signup",{
+      const res = await axios.post(`${BASE_URL}/user/signup`,{
         username: user.email, password: user.password,
       });
       localStorage.setItem('token', res.data.token);

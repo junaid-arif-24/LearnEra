@@ -11,7 +11,7 @@ import {
   import {useEffect, useState} from 'react';
   import axios from 'axios';
   import {useNavigate} from 'react-router-dom';
-  
+  import { BASE_URL } from '../config';
   const PurchasedCourses = () => {
     const navigate = useNavigate();
     const [courses, setCourses] = useState([]);
@@ -19,7 +19,7 @@ import {
     useEffect(() => {
       const fetchCourses = async () => {
         try {
-          const response = await axios.get('https://learn-era-backend.vercel.app/user/purchasedCourses', {
+          const response = await axios.get(`${BASE_URL}/user/purchasedCourses`, {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),
             },

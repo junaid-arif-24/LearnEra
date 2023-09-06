@@ -11,7 +11,7 @@ import DetailsIcon from '@mui/icons-material/Details';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-
+import { BASE_URL } from '../config';
 const Courses = () => {
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
@@ -19,7 +19,7 @@ const Courses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('https://learn-era-backend.vercel.app/user/courses', {
+        const response = await axios.get(`${BASE_URL}/user/courses`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token'),
           },

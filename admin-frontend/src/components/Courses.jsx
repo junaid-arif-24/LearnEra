@@ -11,6 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 import { useNavigate } from 'react-router-dom';
 
 const Courses = () => {
@@ -21,7 +22,7 @@ const Courses = () => {
     const fetchCourses = async () => {
       try {
         const response = await axios.get(
-          'https://learn-era-backend.vercel.app/admin/courses',
+          `${BASE_URL}/admin/courses`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -45,7 +46,7 @@ const Courses = () => {
     if (confirmation) {
       try {
         const response = await axios.delete(
-          `https://learn-era-backend.vercel.app/admin/course/${id}`,
+          `${BASE_URL}/admin/course/${id}`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),

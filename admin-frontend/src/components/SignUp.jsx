@@ -1,29 +1,31 @@
-import {Typography, Card, TextField, Button} from '@mui/material';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import {Card, Typography} from '@mui/material';
 import {adminState} from '../store/atoms/adminAtom';
-import { useRecoilState} from 'recoil';
-import { useNavigate } from 'react-router-dom';
+import {useRecoilState} from 'recoil';
+import {useNavigate} from 'react-router-dom';
+import {BASE_URL} from '../config';
 import axios from 'axios';
+
 const SignUp = () => {
   const navigate = useNavigate();
   const [admin, setAdmin] = useRecoilState(adminState);
-
-  const onSubmitHandler = async(event) => {
-   event.preventDefault();
-    try{
-      const res = await axios.post( "https://learn-era-backend.vercel.app/admin/signup",{
-        username: admin.email, password: admin.password,
+  const onSubmitHandler = async () => {
+    try {
+      const res = await axios.post(`${BASE_URL}/admin/signup`, {
+        body: JSON.stringify({username: admin.email, password: admin.password}),
       });
+
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('isLoggedIn', true);
       setAdmin({
-        email: "",
-        passowrd: "",
+        email: '',
+        passowrd: '',
         isLoggedIn: true,
       });
-      navigate("/")
-    }
-    catch(err){
-      console.error("error", err);
+      navigate('/');
+    } catch (err) {
+      console.log('error', err);
     }
   };
   return (
@@ -50,6 +52,7 @@ const SignUp = () => {
             padding: '2rem',
             height: '300px',
             width: '300px',
+            borderColor:'transparent'
           }}>
           <TextField
             id="outlined-basic"
@@ -76,11 +79,12 @@ const SignUp = () => {
             }
           />
           <Button variant="contained" onClick={onSubmitHandler}>
-            SignUp
+          SignUp
           </Button>
         </Card>
       </div>
     </>
   );
 };
+
 export default SignUp;

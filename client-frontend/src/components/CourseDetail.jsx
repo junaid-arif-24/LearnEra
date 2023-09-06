@@ -9,14 +9,14 @@ import {
   CircularProgress,
   Button,
 } from '@mui/material';
-
+import { BASE_URL } from '../config';
 const CourseDetail = () => {
   const {courseId} = useParams();
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [purchased, setPurchased] = useState(false);
   useEffect(() => {
-    fetch(`https://learn-era-backend.vercel.app/user/course/${courseId}`, {
+    fetch(`${BASE_URL}/user/course/${courseId}`, {
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('token'),
       },
@@ -29,7 +29,7 @@ const CourseDetail = () => {
   }, [courseId]);
 
   const coursePurchasing = () => {
-    fetch(`https://learn-era-backend.vercel.app/user/courses/${courseId}`, {
+    fetch(`${BASE_URL}/user/courses/${courseId}`, {
       method: 'POST',
       headers: {
         authorization: 'Bearer ' + localStorage.getItem('token'),

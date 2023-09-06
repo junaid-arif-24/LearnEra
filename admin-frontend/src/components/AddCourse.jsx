@@ -2,6 +2,9 @@ import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import CourseForm from './CourseForm';
+import { BASE_URL } from '../config';
+
+
 const AddCourse = props => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
@@ -35,7 +38,7 @@ useEffect(() => {
       published,
     };
     axios
-      .post('https://learn-era-backend.vercel.app/admin/courses', newCourse, {
+      .post(`${BASE_URL}/admin/courses`, newCourse, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
           'Content-Type': 'application/json', // Specify content type
@@ -68,7 +71,7 @@ useEffect(() => {
     };
     try {
       const response = await axios.put(
-        `https://learn-era-backend.vercel.app/admin/courses/${props.course.course._id}`,
+        `${BASE_URL}/admin/courses/${props.course.course._id}`,
         updatedData,
         {
           headers: {

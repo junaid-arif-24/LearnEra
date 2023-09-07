@@ -8,12 +8,12 @@ require("dotenv").config();
 const DB_CONNECT = process.env.DB_CONNECT;
 
 const app = express();
-// app.use(cors());
-app.use(cors({
-    origin: ["https://learn-era-admin.vercel.app","https://learn-era-user.vercel.app"],
-    methods:["POST","GET","PUT","DELETE"],
-    credentials:true
-}));
+app.use(cors());
+// app.use(cors({
+//     origin: ["https://learn-era-admin.vercel.app","https://learn-era-user.vercel.app"],
+//     methods:["POST","GET","PUT","DELETE"],
+//     credentials:true
+// }));
 
 app.use(express.json());
  

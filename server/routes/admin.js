@@ -24,10 +24,8 @@ router.post('/signup', async(req, res) => {
       if (admin) {
         res.status(403).json({ message: 'Admin already exists' });
       } else {
-        const obj = { username: username, password: password };
-        const newAdmin = new Admin(obj);
-        newAdmin.save();
-
+        const newAdmin = new Admin({ username, password });
+        await newAdmin.save();
         const token = jwt.sign({ username, role: 'admin' }, SECRET, { expiresIn: '1h' });
         res.json({ message: 'Admin created successfully', token });
       }

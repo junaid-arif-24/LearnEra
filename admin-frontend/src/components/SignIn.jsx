@@ -10,10 +10,13 @@ import axios from 'axios';
 const SignIn = () => {
   const navigate = useNavigate();
   const [admin, setAdmin] = useRecoilState(adminState);
-  const onSubmitHandler = async () => {
+  const onSubmitHandler = async event => {
+    event.preventDefault();
+
     try {
       const res = await axios.post(`${BASE_URL}/admin/login`, {
-        body: JSON.stringify({username: admin.email, password: admin.password}),
+        username: admin.email,
+        password: admin.password,
       });
 
       localStorage.setItem('token', res.data.token);
@@ -52,7 +55,7 @@ const SignIn = () => {
             padding: '2rem',
             height: '300px',
             width: '300px',
-            borderColor:'transparent'
+            borderColor: 'transparent',
           }}>
           <TextField
             id="outlined-basic"
@@ -71,6 +74,7 @@ const SignIn = () => {
             label="password"
             value={admin.password}
             variant="outlined"
+            type="password"
             onChange={e =>
               setAdmin({
                 ...admin,

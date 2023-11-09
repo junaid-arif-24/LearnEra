@@ -10,10 +10,11 @@ import axios from 'axios';
 const SignUp = () => {
   const navigate = useNavigate();
   const [admin, setAdmin] = useRecoilState(adminState);
-  const onSubmitHandler = async () => {
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
     try {
       const res = await axios.post(`${BASE_URL}/admin/signup`, {
-        body: JSON.stringify({username: admin.email, password: admin.password}),
+        username: admin.email, password: admin.password,
       });
 
       localStorage.setItem('token', res.data.token);
@@ -70,6 +71,7 @@ const SignUp = () => {
             id="outlined-basic"
             label="password"
             value={admin.password}
+            type='password'
             variant="outlined"
             onChange={e =>
               setAdmin({
